@@ -1,0 +1,3 @@
+negative : delay, hour, worst, not, no, hr, hold, bag, luggag, stuck, frustrat, noth, lost, screw, half
+neutral  : avgeek, hi, no thank, mexico, appli, fl, novemb, question, delay cancel, saw, expect delay, octob, current, penalti, flyingitforward
+positive : awesom, great, love, thank, not wait, amaz, kudo, excel, best, no worri, excit, thx, appreci, deserv, sweet

@@ -1,0 +1,82 @@
+SENTIMENT CLASSIFICATION BATTLE - Twitter US Airline Sentiment
+==============================================================
+Tweets after removing 213 duplicates : 14427
+   negative :  9080  (62.9%)
+   neutral  :  3057  (21.2%)
+   positive :  2290  (15.9%)
+Majority-class baseline accuracy   : 0.6294
+Tweets left empty after preprocessing (dropped): 45  ->  14382 tweets used
+Avg words per tweet : 17.8 -> 8.2 tokens after preprocessing
+Train tweets: 11505 | Test tweets: 2877 | stratified 80/20
+TF-IDF features (unigrams + bigrams): 12236
+
+>> Decision Tree
+              precision    recall  f1-score   support
+
+    negative     0.7945    0.8413    0.8172      1815
+     neutral     0.4801    0.4793    0.4797       605
+    positive     0.6154    0.4726    0.5347       457
+
+    accuracy                         0.7066      2877
+   macro avg     0.6300    0.5978    0.6105      2877
+weighted avg     0.6999    0.7066    0.7014      2877
+
+>> KNN
+              precision    recall  f1-score   support
+
+    negative     0.7670    0.9212    0.8370      1815
+     neutral     0.5657    0.3488    0.4315       605
+    positive     0.7438    0.5274    0.6172       457
+
+    accuracy                         0.7383      2877
+   macro avg     0.6922    0.5991    0.6286      2877
+weighted avg     0.7210    0.7383    0.7168      2877
+
+>> SVM
+              precision    recall  f1-score   support
+
+    negative     0.8269    0.9157    0.8690      1815
+     neutral     0.6423    0.5074    0.5669       605
+    positive     0.7635    0.6499    0.7021       457
+
+    accuracy                         0.7876      2877
+   macro avg     0.7442    0.6910    0.7127      2877
+weighted avg     0.7780    0.7876    0.7790      2877
+
+>> Naive Bayes
+              precision    recall  f1-score   support
+
+    negative     0.7527    0.9658    0.8460      1815
+     neutral     0.6993    0.3306    0.4489       605
+    positive     0.8244    0.4726    0.6008       457
+
+    accuracy                         0.7539      2877
+   macro avg     0.7588    0.5897    0.6319      2877
+weighted avg     0.7529    0.7539    0.7236      2877
+
+COMPARISON TABLE (test set, macro averages)
+        Model  Accuracy  Precision  Recall     F1  TrainAcc  TrainTime  TestTime
+Decision Tree    0.7066     0.6300  0.5978 0.6105    0.9027     1.5725    0.0022
+          KNN    0.7383     0.6922  0.5991 0.6286    0.7712     0.0187    0.5764
+          SVM    0.7876     0.7442  0.6910 0.7127    0.9457     0.0697    0.0007
+  Naive Bayes    0.7539     0.7588  0.5897 0.6319    0.8695     0.0186    0.0006
+
+Recall per class
+          Decision Tree     KNN     SVM  Naive Bayes
+negative         0.8413  0.9212  0.9157       0.9658
+neutral          0.4793  0.3488  0.5074       0.3306
+positive         0.4726  0.5274  0.6499       0.4726
+
+Best model (macro F1): SVM
+               pred negative  pred neutral  pred positive
+true negative           1662           116             37
+true neutral             243           307             55
+true positive            105            55            297
+
+WHAT-IF: standard stop-word list (negations removed) vs keeping negation words
+Stop-word list  Negations kept (main setup)  Standard list (negations removed)
+Model                                                                         
+Decision Tree                        0.6105                             0.5885
+KNN                                  0.6286                             0.5965
+Naive Bayes                          0.6319                             0.6198
+SVM                                  0.7127                             0.6980

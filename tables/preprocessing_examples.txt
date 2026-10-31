@@ -1,0 +1,12 @@
+[positive]
+  tweet : @VirginAmerica plus you've added commercials to the experience... tacky.
+  tokens: plu ve ad commerci experi tacki
+
+[negative]
+  tweet : @VirginAmerica it's really aggressive to blast obnoxious "entertainment" in your guests' faces &amp; they have little recourse
+  tokens: realli aggress blast obnoxi entertain guest face littl recours
+
+[positive]
+  tweet : @VirginAmerica Thanks!
+  tokens: thank
+
